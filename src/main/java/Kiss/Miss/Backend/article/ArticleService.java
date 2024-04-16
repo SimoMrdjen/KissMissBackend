@@ -15,14 +15,33 @@ public class ArticleService {
     private final ArticleRepository articleRepository;
     private final ArticleMapper articleMapper;
 
-    public Article addArticle(ArticleDTO dto) {
-        return articleRepository.save(articleMapper.toEntity(dto));
-    }
+    public ArticleDTO addArticle(ArticleDTO dto) {
+        Article article = articleRepository.save(articleMapper.toEntity(dto));
+        return   articleMapper.toDto((article));    }
 
     public List<ArticleDTO> getAllArticles() {
         return articleRepository.findAll()
                 .stream()
                 .map(articleMapper::toDto)
                 .toList();
+    }
+
+    public ArticleDTO editArticle(ArticleDTO dto) throws Exception {
+        if(articleRepository.findById(dto.getId()).isPresent()) {
+            Article article = articleRepository.save(articleMapper.toEntity(dto));
+            return   articleMapper.toDto((article));
+        } else {
+            throw new Exception("Artikal ne postoji");
+        }
+
+    }
+
+    public String deleteArticle(Long id) throws Exception {
+        if(articleRepository.findById(id).isPresent()) {
+            articleRepository.deleteById(id);
+            return   "Artikal je uspesno obrisan";
+        } else {
+            throw new Exception("Artikal ne postoji");
+        }
     }
 }

@@ -6,10 +6,19 @@ import org.springframework.stereotype.Component;
 public class ArticleMapper {
 
     public Article toEntity(ArticleDTO dto) {
-        return null;
+
+        return Article.builder()
+                .id(dto.getId())
+                .code(dto.getCode())
+                .price(dto.getPrice())
+                .build();
     }
 
     public ArticleDTO toDto(Article article) {
-        return null;
+        return ArticleDTO.builder()
+                .id(article.getId())
+                .code(article.getCode())
+                .price(article.getPrice())
+                .build();
     }
 }

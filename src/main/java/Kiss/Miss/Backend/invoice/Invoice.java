@@ -1,6 +1,7 @@
 package Kiss.Miss.Backend.invoice;
 
 import Kiss.Miss.Backend.customer.Customer;
+import Kiss.Miss.Backend.invoice.invoice_item.InvoiceItem;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

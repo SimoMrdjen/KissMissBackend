@@ -1,8 +1,8 @@
-package Kiss.Miss.Backend.article;
+package Kiss.Miss.Backend.invoice;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ArticleRepository extends JpaRepository<Article, Long> {
+public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
 }

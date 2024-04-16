@@ -16,7 +16,7 @@ public class ArticleController {
     private final ArticleService articleService;
 
     @PostMapping
-    public ResponseEntity<Article> addArticle(@RequestBody ArticleDTO dto) {
+    public ResponseEntity<ArticleDTO> addArticle(@RequestBody ArticleDTO dto) {
         return ResponseEntity.ok(articleService.addArticle(dto));
     }
 
@@ -25,4 +25,13 @@ public class ArticleController {
         return ResponseEntity.ok(articleService.getAllArticles());
     }
 
+    @PutMapping
+    public ResponseEntity<ArticleDTO> editArticle(@RequestBody ArticleDTO dto) throws Exception {
+        return ResponseEntity.ok(articleService.editArticle(dto));
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<String>deleteArticle(@RequestParam(name = "id") Long id) throws Exception {
+        return ResponseEntity.ok(articleService.deleteArticle(id));
+    }
 }
