@@ -1,5 +1,6 @@
 package Kiss.Miss.Backend.article;
 
+import Kiss.Miss.Backend.exceptions.ArticleException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class ArticleService {
             Article article = articleRepository.save(articleMapper.toEntity(dto));
             return   articleMapper.toDto((article));
         } else {
-            throw new Exception("Artikal ne postoji");
+            throw new ArticleException("Artikal ne postoji");
         }
 
     }
@@ -41,7 +42,7 @@ public class ArticleService {
             articleRepository.deleteById(id);
             return   "Artikal je uspesno obrisan";
         } else {
-            throw new Exception("Artikal ne postoji");
+            throw new ArticleException("Artikal ne postoji");
         }
     }
 }

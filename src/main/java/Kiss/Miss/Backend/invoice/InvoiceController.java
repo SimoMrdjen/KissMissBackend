@@ -21,17 +21,17 @@ public class InvoiceController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CustomerDTO>> getAllCustomers() {
-        return ResponseEntity.ok(invoiceService.getAllCustomer());
+    public ResponseEntity<List<InvoiceDTO>> getAllInvoicess() {
+        return ResponseEntity.ok(invoiceService.getAllInvoices());
     }
 
     @PutMapping
-    public ResponseEntity<CustomerDTO> editCustomer(@RequestBody CustomerDTO dto) throws Exception {
-        return ResponseEntity.ok(invoiceService.editCustomer(dto));
+    public ResponseEntity<InvoiceDTO> editInvoice(@RequestBody InvoiceDTO dto) throws Exception {
+        return ResponseEntity.ok(invoiceService.editInvoice(dto));
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<String>deleteCustomer(@RequestParam(name = "id") Long id) throws Exception {
-        return ResponseEntity.ok(invoiceService.deleteCustomer(id));
+    public ResponseEntity<String>deleteInvoice(@RequestParam(name = "id") Long id) throws Exception {
+        return ResponseEntity.ok(invoiceService.deleteInvoice(id));
     }
 }

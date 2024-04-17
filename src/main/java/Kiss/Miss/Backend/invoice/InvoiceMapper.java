@@ -1,10 +1,14 @@
 package Kiss.Miss.Backend.invoice;
 
 import Kiss.Miss.Backend.customer.Customer;
+import Kiss.Miss.Backend.customer.CustomerDTO;
 import Kiss.Miss.Backend.customer.CustomerMapper;
+import Kiss.Miss.Backend.invoice.invoice_item.InvoiceItemDTO;
 import Kiss.Miss.Backend.invoice.invoice_item.InvoiceItemMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -19,7 +23,18 @@ public class InvoiceMapper {
                 .id(dto.getId())
                 .customer(customer)
                 .date(dto.getDate())
-                .invoiceItems(invoiceItemMapper.toEntities(dto.getInvoiceItems()))
+               // .invoiceItems(invoiceItemMapper.toEntities(dto.getInvoiceItemsDto(), invoice))
+                .build();
+    }
+
+    public InvoiceDTO toDto(Invoice invoice) {
+        CustomerDTO customerDTO = customerMapper.toDto(invoice.getCustomer());
+        List<InvoiceItemDTO> itemsDto = invoiceItemMapper.toDtos(invoice.getInvoiceItems());
+        return InvoiceDTO.builder()
+                .id(invoice.getId())
+                .customerDto(customerDTO)
+                .date(invoice.getDate())
+                .invoiceItemsDto(itemsDto)
                 .build();
     }
 }

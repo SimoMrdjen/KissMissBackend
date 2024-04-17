@@ -21,7 +21,7 @@ public class InvoiceDTO {
     private Long id;
     private CustomerDTO customerDto;
     private LocalDate date;
-    private List<InvoiceItemDTO> invoiceItems = new ArrayList<>();
+    private List<InvoiceItemDTO> invoiceItemsDto = new ArrayList<>();
 
 
 

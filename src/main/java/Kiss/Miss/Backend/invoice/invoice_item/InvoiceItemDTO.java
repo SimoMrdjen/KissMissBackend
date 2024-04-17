@@ -1,6 +1,6 @@
 package Kiss.Miss.Backend.invoice.invoice_item;
 
-import jakarta.persistence.Column;
+import Kiss.Miss.Backend.invoice.InvoiceDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,4 +21,6 @@ public class InvoiceItemDTO {
     private Integer discount;
 
     private String articleType;
+
+    private InvoiceDTO invoiceDto;
 }
