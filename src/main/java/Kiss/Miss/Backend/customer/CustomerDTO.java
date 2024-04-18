@@ -1,5 +1,7 @@
 package Kiss.Miss.Backend.customer;
 
+import Kiss.Miss.Backend.invoice.Invoice;
+import Kiss.Miss.Backend.invoice.InvoiceDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,6 +10,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -22,4 +27,6 @@ public class CustomerDTO {
     private String city;
 
     private String person;
+
+   // private List<InvoiceDTO> invoices = new ArrayList<>();
 }

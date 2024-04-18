@@ -2,6 +2,7 @@ package Kiss.Miss.Backend.customer;
 
 import Kiss.Miss.Backend.article.Article;
 import Kiss.Miss.Backend.article.ArticleMapper;
+import Kiss.Miss.Backend.exceptions.CustomerException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,7 @@ public class CustomerService {
             Customer customer = customerRepository.save(customerMapper.toEntity(dto));
             return   customerMapper.toDto((customer));
         } else {
-            throw new Exception("Kupac ne postoji");
+            throw new CustomerException("Kupac ne postoji");
         }
     }
 
@@ -41,7 +42,7 @@ public class CustomerService {
             customerRepository.deleteById(id);
             return   "Kupac je uspesno obrisan";
         } else {
-            throw new Exception("Kupac ne postoji");
+            throw new CustomerException("Kupac ne postoji");
         }
     }
 }

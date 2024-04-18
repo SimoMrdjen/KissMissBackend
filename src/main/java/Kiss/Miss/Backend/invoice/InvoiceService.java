@@ -44,7 +44,7 @@ public class InvoiceService {
     public String deleteInvoice(Long id) throws InvoiceException {
         if(invoiceRepository.findById(id).isPresent()) {
             invoiceRepository.deleteById(id);
-            return   "Otprmnica  je uspesno obrisana!";        } else {
+            return   "Otpremnica  je uspesno obrisana!";        } else {
             throw new InvoiceException("Otpremnica ne postoji");
         }
     }

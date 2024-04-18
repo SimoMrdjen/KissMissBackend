@@ -14,26 +14,26 @@ public class InvoiceItemMapper {
 
     private final InvoiceMapper invoiceMapper;
 
-    public List<InvoiceItem> toEntities(List<InvoiceItemDTO> invoiceItems) {
-        return invoiceItems.stream()
-                .map(i -> toEntity(i))
-                .toList();
-    }
+//    public List<InvoiceItem> toEntities(List<InvoiceItemDTO> invoiceItems) {
+//        return invoiceItems.stream()
+//                .map(i -> toEntity(i))
+//                .toList();
+//    }
     public List<InvoiceItem> toEntities(List<InvoiceItemDTO> invoiceItems, Invoice invoice) {
         return invoiceItems.stream()
                 .map(i -> toEntity(i, invoice))
                 .toList();
     }
-    private InvoiceItem toEntity(InvoiceItemDTO dto) {
-        Invoice invoice = invoiceMapper.toEntity(dto.getInvoiceDto());
-        return InvoiceItem.builder()
-                .id(dto.getId())
-                .invoice(invoice)
-                .articleType(dto.getArticleType())
-                .discount(dto.getDiscount())
-                .price(dto.getPrice())
-                .build();
-    }
+//    private InvoiceItem toEntity(InvoiceItemDTO dto) {
+//        Invoice invoice = invoiceMapper.toEntity(dto.getInvoiceDto());
+//        return InvoiceItem.builder()
+//                .id(dto.getId())
+//                .invoice(invoice)
+//                .articleType(dto.getArticleType())
+//                .discount(dto.getDiscount())
+//                .price(dto.getPrice())
+//                .build();
+//    }
     public InvoiceItem toEntity(InvoiceItemDTO dto, Invoice invoice) {
         return InvoiceItem.builder()
                 .id(dto.getId())
@@ -45,15 +45,15 @@ public class InvoiceItemMapper {
     }
     public List<InvoiceItemDTO> toDtos(List<InvoiceItem> invoiceItems) {
         return invoiceItems.stream()
-                .map(this::toDto)
+                .map(i -> toDto(i))
                 .toList();
     }
 
     private InvoiceItemDTO toDto(InvoiceItem invoiceItem) {
-        InvoiceDTO invoiceDto = invoiceMapper.toDto(invoiceItem.getInvoice());
+//        InvoiceDTO invoiceDto = invoiceMapper.toDto(invoiceItem.getInvoice());
         return InvoiceItemDTO.builder()
                 .id(invoiceItem.getId())
-                .invoiceDto(invoiceDto)
+//                .invoiceDto(invoiceDTO)
                 .articleType(invoiceItem.getArticleType())
                 .discount(invoiceItem.getDiscount())
                 .price(invoiceItem.getPrice())

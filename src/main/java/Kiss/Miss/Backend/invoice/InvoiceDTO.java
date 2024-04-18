@@ -22,7 +22,4 @@ public class InvoiceDTO {
     private CustomerDTO customerDto;
     private LocalDate date;
     private List<InvoiceItemDTO> invoiceItemsDto = new ArrayList<>();
-
-
-
 }

@@ -31,7 +31,7 @@ public class Customer {
     @Column
     private String person;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "id")
+    @OneToMany(mappedBy = "customer",
+            fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Invoice> invoices = new ArrayList<>();
 }

@@ -33,6 +33,6 @@ public class InvoiceItem {
     private String articleType;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "invoice_id")
     private Invoice invoice;
 }

@@ -19,14 +19,10 @@ import static org.mockito.Mockito.when;
 
 class ArticleServiceTest {
 
-    @Mock
-    ArticleMapper mapper;
+    @Mock ArticleMapper mapper;
+    @Mock ArticleRepository repository;
 
-    @Mock
-    ArticleRepository repository;
-
-    @InjectMocks
-    ArticleService service;
+    @InjectMocks ArticleService service;
 
     Article article;
     ArticleDTO dto;
