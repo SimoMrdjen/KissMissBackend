@@ -21,7 +21,7 @@ public class InvoiceItemMapper {
 //    }
     public List<InvoiceItem> toEntities(List<InvoiceItemDTO> invoiceItems, Invoice invoice) {
         return invoiceItems.stream()
-                .map(i -> toEntity(i, invoice))
+                .map(i -> this.toEntity(i, invoice))
                 .toList();
     }
 //    private InvoiceItem toEntity(InvoiceItemDTO dto) {
@@ -38,6 +38,7 @@ public class InvoiceItemMapper {
         return InvoiceItem.builder()
                 .id(dto.getId())
                 .invoice(invoice)
+                .quantity(dto.getQuantity())
                 .articleType(dto.getArticleType())
                 .discount(dto.getDiscount())
                 .price(dto.getPrice())

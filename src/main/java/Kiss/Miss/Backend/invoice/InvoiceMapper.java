@@ -34,12 +34,12 @@ public class InvoiceMapper {
 
     public InvoiceDTO toDto(Invoice invoice) {
         CustomerDTO customerDTO = customerMapper.toDto(invoice.getCustomer());
-        List<InvoiceItemDTO> itemsDto = invoiceItemMapper.toDtos(invoice.getInvoiceItems());
+       // List<InvoiceItemDTO> itemsDto = invoiceItemMapper.toDtos(invoice.getInvoiceItems());
         return InvoiceDTO.builder()
                 .id(invoice.getId())
                 .customerDto(customerDTO)
                 .date(invoice.getDate())
-                .invoiceItemsDto(itemsDto)
+                //.invoiceItemsDto(itemsDto)
                 .build();
     }
 }
