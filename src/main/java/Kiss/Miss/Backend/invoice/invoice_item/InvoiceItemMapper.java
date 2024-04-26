@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class InvoiceItemMapper {
 
-    private final InvoiceMapper invoiceMapper;
+ //   private final InvoiceMapper invoiceMapper;
 
 //    public List<InvoiceItem> toEntities(List<InvoiceItemDTO> invoiceItems) {
 //        return invoiceItems.stream()
